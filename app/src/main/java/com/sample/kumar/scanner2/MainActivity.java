@@ -48,6 +48,7 @@ MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler
 
         //ZXingScannerView zxing=(ZXingScannerView)findViewBy Id(R.id.zxscan);
         scannerView = (ZXingScannerView) findViewById(R.id.zxscan);
+        Log.e("Cameraaaa","Zxing camera");
         //img=(ImageButton)findViewById(R.id.img1);
         //scannerView.setResultHandler(this);
         //scannerView.startCamera();
@@ -57,7 +58,7 @@ MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler
 
 
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-        if (currentapiVersion >= android.os.Build.VERSION_CODES.M) {
+        if (currentapiVersion >= Build.VERSION_CODES.LOLLIPOP) {
             if (checkPermission()) {
                 Log.e("M", "Permission");
                 Toast.makeText(getApplicationContext(), "Permission already granted", Toast.LENGTH_LONG).show();
@@ -124,7 +125,7 @@ MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler
         super.onResume();
 
         int capi = android.os.Build.VERSION.SDK_INT;
-        if (capi >= android.os.Build.VERSION_CODES.M) {
+        if (capi >= Build.VERSION_CODES.LOLLIPOP) {
             if (checkPermission()) {
                 if (scannerView == null) {
                     scannerView = new ZXingScannerView(this);
